@@ -21,14 +21,3 @@ def scan_folder(folder_path):
             file_list.append(file_metadata)
     
     return file_list
-
-# Example usage
-folder_path = input("Enter the folder path to scan: ")
-files = scan_folder(folder_path)
-
-if files:
-    print("Scanned files:")
-    for file in files:
-        print(f"{file['file_name']} | Size: {file['file_size']} bytes | Type: {file['file_extension']}")
-else:
-    print("No files found or folder is empty.")
