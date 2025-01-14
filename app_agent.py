@@ -1,11 +1,12 @@
 import subprocess
 
-def application_agent(command):
+def application_agent(dict):
     """
     Handles application-related tasks.
     """
+    command = dict['action']
     if "open" in command.lower():
-        app_name = command.split("open")[-1].strip()
+        app_name = dict['platform']
         try:
             subprocess.Popen(["open", "-a", app_name])  # macOS
             return f"Opened {app_name}."

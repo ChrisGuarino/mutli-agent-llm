@@ -2,15 +2,16 @@ def dispatch_command(command):
     """
     Directs the command to the appropriate agent based on intent.
     """
-    if "open" in command or "application" in command:
+    lc_command = command.lower()
+    if "open" in lc_command or "application" in lc_command:
         return "Application Agent"
-    elif "search" in command or "navigate" in command:
+    elif "search" in lc_command or "navigate" in lc_command:
         return "Web Navigation Agent"
-    elif "note" in command or "reminder" in command:
+    elif "note" in lc_command or "reminder" in lc_command:
         return "Task Manager Agent"
-    elif "organize" in command or "file" in command:
+    elif "organize" in lc_command or "file" in lc_command:
         return "File Manager Agent"
-    elif "schedule" in command:
+    elif "schedule" in lc_command:
         return "Scheduler Agent"
     else:
         return "Error Handler Agent"

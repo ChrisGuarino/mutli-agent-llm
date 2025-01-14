@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
+import os
 import openai
 import json
 
-openai.api_key = "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"
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def parse_command(command):
     """
@@ -16,4 +19,10 @@ def parse_command(command):
         ]
     )
     dict_response = json.loads(response["choices"][0]["message"]["content"])
-    return dict_response 
+    print(dict_response)
+    return dict_response  
+
+# #TEST 
+# command = input("What do you want to do?")
+# response = parse_command(command) 
+# print(response)
