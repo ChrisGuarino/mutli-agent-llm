@@ -7,6 +7,7 @@ def main():
     while True:
         user_input = input("What would you like to do? ")
         input_dict = parse_command(user_input)
+        print(input_dict)
         action = input_dict['action']
         if action.lower() in ["exit", "quit"]:
             print("Goodbye!")
