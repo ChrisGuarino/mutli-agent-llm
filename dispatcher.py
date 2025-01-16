@@ -1,17 +1,31 @@
-def dispatch_command(command):
+def execute_command(parsed_command):
     """
-    Directs the command to the appropriate agent based on intent.
+    Executes an action based on the parsed command.
     """
-    lc_command = command.lower()
-    if "open" in lc_command or "application" in lc_command:
-        return "Application Agent"
-    elif "search" in lc_command or "navigate" in lc_command:
-        return "Web Navigation Agent"
-    elif "note" in lc_command or "reminder" in lc_command:
-        return "Task Manager Agent"
-    elif "organize" in lc_command or "file" in lc_command:
-        return "File Manager Agent"
-    elif "schedule" in lc_command:
-        return "Scheduler Agent"
+    intent = parsed_command["intent"]
+    parameters = parsed_command["parameters"]
+
+    if intent == "add_comment":
+        step = parameters["step"]
+        comment = parameters["comment"]
+        print(f"Adding comment '{comment}' to step {step}.")
+        # Call a function to add the comment on the website
+
+    elif intent == "navigate":
+        direction = parameters["direction"]
+        print(f"Navigating {direction}.")
+        # Call a function to navigate (e.g., next/previous step)
+
+    elif intent == "retrieve_info":
+        step = parameters["step"]
+        print(f"Retrieving information for step {step}.")
+        # Call a function to retrieve step details
+
+    elif intent == "update_status":
+        step = parameters["step"]
+        status = parameters["status"]
+        print(f"Updating status of step {step} to '{status}'.")
+        # Call a function to update step status
+
     else:
-        return "Error Handler Agent"
+        print("Unknown intent.")
