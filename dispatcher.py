@@ -1,4 +1,4 @@
-def execute_command(parsed_command):
+def dispatch_command(parsed_command):
     """
     Executes an action based on the parsed command.
     """
