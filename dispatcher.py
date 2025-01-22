@@ -1,3 +1,5 @@
+from command_functions import navigate_and_extract,add_comment
+
 def dispatch_command(parsed_command):
     """
     Executes an action based on the parsed command.
@@ -10,11 +12,14 @@ def dispatch_command(parsed_command):
         comment = parameters["comment"]
         print(f"Adding comment '{comment}' to step {step}.")
         # Call a function to add the comment on the website
+        add_comment(step,comment)
 
     elif intent == "navigate":
         direction = parameters["direction"]
         print(f"Navigating {direction}.")
         # Call a function to navigate (e.g., next/previous step)
+        step = parameters["step"]
+        navigate_and_extract(step)
 
     elif intent == "retrieve_info":
         step = parameters["step"]
