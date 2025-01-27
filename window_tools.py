@@ -9,7 +9,6 @@ import time
 from PIL import ImageGrab
 import Quartz
 
-
 def get_active_window_geometry():
     """
     Retrieves the title and geometry of the most prominent active window on macOS.
@@ -32,8 +31,6 @@ def get_active_window_geometry():
 
     return None, None
 
-
-
 def capture_active_window(geometry):
     """
     Captures a screenshot of the active window based on its geometry.
@@ -48,10 +45,15 @@ def capture_active_window(geometry):
 
 
     # Capture the region
+    # screenshot = ImageGrab.grab(bbox=(left, top, right, bottom))
+    # timestamp = int(time.time())
+    # screenshot.save(f"images/active_window_{timestamp}.png")
+    # print(f"Screenshot saved as 'active_window_{timestamp}.png'.")
+    # return screenshot
+
     screenshot = ImageGrab.grab(bbox=(left, top, right, bottom))
-    timestamp = int(time.time())
-    screenshot.save(f"images/active_window_{timestamp}.png")
-    print(f"Screenshot saved as 'active_window_{timestamp}.png'.")
+    screenshot.save(f"images/active_window.png")
+    print(f"Screenshot saved as 'active_window.png'.")
     return screenshot
 
 
